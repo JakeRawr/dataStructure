@@ -1,31 +1,25 @@
 'use strict';
-
 function Queue() {
   this.dataStore = [];
-
   this.enqueue = function (element) {
     this.dataStore.push(element);
   };
-
   this.dequeue = function () {
     return this.dataStore.shift();
   };
-
   this.front = function () {
     return this.dataStore[0];
   };
-
   this.back = function () {
-    return this.dataStore[this.dataStore.length-1];
+    return this.dataStore[this.dataStore.length - 1];
   };
-
   this.toString = function () {
-    var retStr = "";
+    var retStr = '';
     for (var i = 0; i < this.dataStore.length; ++i) {
-    retStr += this.dataStore[i] + "\n"; }
+      retStr += this.dataStore[i] + '\n';
+    }
     return retStr;
   };
-
   this.empty = function () {
     if (this.dataStore.length === 0) {
       return true;
@@ -33,8 +27,7 @@ function Queue() {
       return false;
     }
   };
-
-  this.pDequeue = function() {
+  this.pDequeue = function () {
     var priority = this.dataStore[0].code;
     var index = 0;
     for (var i = 1; i < this.dataStore.length; ++i) {
@@ -43,7 +36,7 @@ function Queue() {
         index = i;
       }
     }
-    return this.dataStore.splice(index,1);
+    return this.dataStore.splice(index, 1);
   };
 }
 module.exports = Queue;
